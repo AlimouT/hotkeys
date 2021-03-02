@@ -105,5 +105,5 @@ def tetris_song(bpm=140, repeats=2):
 if __name__ == "__main__":
 	keyboard_controller = Controller()
 	time.sleep(.75)
-	tetris_song(200)
-	# spam_quack()
+	# tetris_song(200)
+	spam_quack(30)
