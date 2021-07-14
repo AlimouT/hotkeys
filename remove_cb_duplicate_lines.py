@@ -1,13 +1,13 @@
 import win32clipboard
 
-# Sort Content of clipboard by line and remove line-pairs (lines that are there are even number of times)
+# Sort content of clipboard by line and remove line-pairs (lines that are there are even number of times)
 # Lines that exist an odd number of times are kept once.
 
 win32clipboard.OpenClipboard()
 content = win32clipboard.GetClipboardData()
 content_list = content.splitlines()
 content_list.sort()
-content_list = [x+'\r' for x in content_list if x != '']
+content_list = [x+'\n' for x in content_list if x != '']
 temp_line = ''
 i = 1
 while i < len(content_list):

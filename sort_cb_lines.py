@@ -4,10 +4,9 @@ import win32clipboard
 
 win32clipboard.OpenClipboard()
 content = win32clipboard.GetClipboardData()
-content_list = content.splitlines()
-content_list.sort()
-content_list = [x+'\r' for x in content_list if x != '']
-content = ''.join(content_list)
+content_dict = {line.lower(): line for line in content.splitlines() if line.strip() != ''}
+content_list = [content_dict[key] for key in sorted(content_dict.keys())]
+content = '\n'.join(content_list)
 win32clipboard.EmptyClipboard()
 win32clipboard.SetClipboardText(content)
 win32clipboard.CloseClipboard()
